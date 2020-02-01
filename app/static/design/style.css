@@ -91,6 +91,8 @@ center {
 .asked {
     margin 0 auto;
     text-align: left;
+    font-style: italic;
+    font-weight: bold;
 }
 .story {
     height: 100%;
