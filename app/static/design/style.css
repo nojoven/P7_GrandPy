@@ -1,0 +1,77 @@
+html,body {
+    height: 100%;
+}
+H1 {
+    text-align:center;
+    min-height: 80%;
+    padding-top: 1%
+}
+h3 {
+    vertical-align: center;
+    height: auto;
+}
+
+center {
+    padding-top: 1%
+}
+
+#typearea{
+    border-color: black;
+}
+
+#button {
+    border-color: black;
+    margin-top: 0;
+}
+#title {
+    color:white;
+    margin: 0;
+    padding: 0;
+    margin-bottom: -12px;
+
+}
+#titlecol{height:100%; padding: 0}
+#papy{
+    border-radius: 50% 20% / 10% 40%;
+    width:60%;
+    height:60%;
+    padding: 0
+}
+#container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+}
+#headerdiv {
+    height:15%;
+    background-color: black;
+}
+#middlediv {
+    height:65%;
+    border: black;
+    background-color:white;
+
+}
+#userdiv {
+    height:15%;
+}
+#footerdiv {
+    padding-top:5%
+    height:10%;
+    background-color: black;
+    text-color: white
+    text-align:center
+}
+
+#form {
+    background-color:silver;
+}
+
+#picauthor {
+    color:white;
+    padding:0;
+    margin: 0;
+}

@@ -5,34 +5,60 @@
   <meta charset="utf-8">
   <title>Grandpy ChatBot</title>
   <meta name="description" content="The stories of Grandpy">
-  <link rel="stylesheet" href="./styles/design/style.css">
+  <link rel="stylesheet" href="./static/design/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 </head>
 
 <body>
   <div class="container" id="container">
-  <div class="row border border-primary" id="upperdiv">
-    <div class="col">
-      1 of 2
+    <div class="row border border-dark" id="headerdiv">
+      <div class="col-8" id="titlecol">
+
+          <H1 id="title">GrandPy Stories</H1>        <center>
+          <p id="picauthor">
+            Logo: <a href="https://pixabay.com/users/heblo-1758675/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1087038">heblo</a>
+            <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1087038">Pixabay</a>
+          </p>
+        </center>
+
+      </div>
+      <div class="col-4" id="logocol">
+        <img src="./static/design/img/old.png" class="img-thumbnail" id="papy">
+      </div>
     </div>
-    <div class="col">
-      2 of 2
+    <div class="row border border-dark" id="middlediv">
+      <div class="col" id="screen">
+
+      </div>
     </div>
-    <div class="col">
-      3 of 3
+    <div class="row border border-dark" id = userdiv>
+      <div class="col" id="form">
+        <form class="form-inline">
+          <label class="sr-only">Type your question</label>
+          <textarea class="form-control col-12" id="typearea" rows="3"></textarea>
+          <button type="submit" class="btn btn-primary col-12 sm-2" id="button">Ask</button>
+        </form>
+      </div>
     </div>
-  </div>
-  <div class="row border border-dark" id = bottomdiv>
-    <div class="col" id="form">
-      1 of 3
-    </div>
-  </div>
+
+    <div class="row border border-dark" id="footerdiv">
+      <div class="col-6">
+        <center>
+          <h3>
+            <a href="https://www.linkedin.com/in/c%C3%A9dric-joseph-9365b6114/">Cédric Joseph</a>
+          </h3>
+        </center>
+      </div>
+      <div class="col-6">
+        <center><h3><a href="https://github.com/nojoven/">Github</a></h3></center>
+      </div>
 </div>
 
   <!-- Optional JavaScript -->
-  <script src="/.jscripts/scripts.js"></script>
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
