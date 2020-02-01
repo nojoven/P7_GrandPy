@@ -10,7 +10,11 @@ h3 {
     vertical-align: center;
     height: auto;
 }
+p {
 
+    margin: 0 auto;
+
+}
 center {
     padding-top: 1%
 }
@@ -30,12 +34,16 @@ center {
     margin-bottom: -12px;
 
 }
-#titlecol{height:100%; padding: 0}
+#titlecol{
+    height:100%;
+    padding: 0;
+}
+
 #papy{
     border-radius: 50% 20% / 10% 40%;
     width:60%;
     height:60%;
-    padding: 0
+    padding: 0;
 }
 #container {
     position: absolute;
@@ -62,8 +70,8 @@ center {
     padding-top:5%
     height:10%;
     background-color: black;
-    text-color: white
-    text-align:center
+    text-color: white;
+    text-align:center;
 }
 
 #form {
@@ -74,4 +82,16 @@ center {
     color:white;
     padding:0;
     margin: 0;
+}
+
+.question {
+    height: 6%;
+    border-color: black;
+}
+.asked {
+    margin 0 auto;
+    text-align: left;
+}
+.story {
+    height: 100%;
 }
