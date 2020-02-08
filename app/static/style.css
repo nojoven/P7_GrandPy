@@ -15,10 +15,6 @@ center {
     padding-top: 1%
 }
 
-#typearea{
-    border-color: black;
-}
-
 #title {
     color:white;
     margin: 0;
@@ -31,10 +27,16 @@ center {
     padding: 0;
 }
 
+#middlediv{
+    height: 75%;
+    overflow: hidden;
+    margin-top: 132px;
+}
+
 #papy{
     border-radius: 50% 20% / 10% 40%;
-    width:60%;
-    height:60%;
+    width:40%;
+    height:56%;
     padding: 0;
 }
 #container {
@@ -48,10 +50,13 @@ center {
 #headerdiv {
     height:15%;
     background-color: black;
+    position: fixed;
+    left: 0;
+    right: 0;
 }
 
 #footerdiv {
-    height:15%;
+    height:10%;
     background-color: black;
     text-color: white;
     text-align:center;
@@ -73,6 +78,8 @@ center {
 		}
 
 		.chat{
+		    height: 154%;
+            overflow: hidden;
 			margin-top: auto;
 			margin-bottom: auto;
 			width: 100%;
