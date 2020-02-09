@@ -8,6 +8,7 @@ $("#typearea").keyup(function(e){
 						 "</div>";
         $('.chatarea').append($userBubble);
         $(this).val("");
+        $(".chatarea").scrollTop($('.chatarea').prop("scrollHeight"));
         return;
 
     }
@@ -25,6 +26,7 @@ $("#typearea").keyup(function(e){
 						 "</div>";
         $('.chatarea').append($botBubble);
         $(this).val("");
+        $(".chatarea").scrollTop($('.chatarea').prop("scrollHeight"));
         return;
 
     }
