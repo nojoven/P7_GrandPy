@@ -1,16 +1,32 @@
 $("#typearea").keyup(function(e){
     if(e.keyCode == 13)
     {
-        var $userBubble = $('.ispeakdiv').clone().appendTo(".chatarea");
-
+        var $userBubble = "<div class='d-flex justify-content-end mb-4 ispeakdiv'>"+
+								"<div class='msg_cotainer_send mywords'>"
+								    + $(this).val() +
+								"</div>"+
+						 "</div>";
+        $('.chatarea').append($userBubble);
         $(this).val("");
         return;
 
     }
 
 });
-$( "#button" ).click(function() {
-  $(".asked").append($("#typearea").val());
-  $("#typearea").val("")
-});
 
+
+$("#typearea").keyup(function(e){
+    if(e.keyCode == 8)
+    {
+        var $botBubble = "<div class='d-flex justify-content-start mb-4 papyspeaksdiv'>"+
+								"<div class='msg_cotainer botwords'>"
+								    + $(this).val() +
+								"</div>"+
+						 "</div>";
+        $('.chatarea').append($botBubble);
+        $(this).val("");
+        return;
+
+    }
+
+});
