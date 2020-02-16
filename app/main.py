@@ -22,8 +22,8 @@ def favicon():
 @app.route('/input_process')
 def input_process():
     input_text = request.args.get('input_text')
-    #words_in_question = WordPunctTokenizer().tokenize(input_text)
-    #print(words_in_question)
+    words_in_question = WordPunctTokenizer().tokenize(input_text)
+    print(words_in_question)
 
 
 
