@@ -1,0 +1,3 @@
+EXTENDED_STOPS= ["Grandpy", "grandpy", "ce", "est","est-ce", "Je", "je", "il", "Il", "elle", "Elle","Ils","Elles","Nous","nous","Vous","vous","Salut", "salut", "Est", "tu", "connais", "adresse", "souhaite", "me", "Tu", "rendre", "aux", "GrandPy"]
+mapsRequest = f"https://maps.googleapis.com/maps/api/staticmap?center=Arc+Triomphe&zoom=13&size=600x300&maptype=roadmap&key=AIzaSyASYGQA_thkY7B5aZLyZJ2brv7TCVmHkqA"
+MAPSKEY = "AIzaSyASYGQA_thkY7B5aZLyZJ2brv7TCVmHkqA"
