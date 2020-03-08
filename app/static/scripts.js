@@ -35,7 +35,13 @@ $("#typearea").keyup(function(e){
                 image.height=150;
                 image.alt="here should be some image";
 
-                 $('.chatarea').append(image);
+                $('.chatarea').append(image);
+                $('.chatarea').append("<br><br>");
+
+              }
+              if(data["wiki"] != null) {
+                description = data["wiki"];
+                botMessage(description);
               }
             });
         $(this).val("");
@@ -43,22 +49,16 @@ $("#typearea").keyup(function(e){
 
 });
 
-
-$("#typearea").keyup(function(e){
-    if(e.keyCode == 8)
-    {
+function botMessage(message){
         var $botBubble = "<div class='d-flex justify-content-start mb-4 papyspeaksdiv'>"+
 								"<div class='msg_cotainer botwords'>"
-								    + $(this).val() +
+								    + message +
 								"</div>"+
 						 "</div>";
         $('.chatarea').append($botBubble);
         $(this).val("");
         $(".chatarea").scrollTop($('.chatarea').prop("scrollHeight"));
-        return;
 
-    }
-
-});
+}
 
 
