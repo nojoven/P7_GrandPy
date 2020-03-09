@@ -29,7 +29,7 @@ def favicon():
 
 def get_wiki(location):
     if location is None:
-        return "NO AVAILABLE WIKI"
+        return "J'connais pas ce coin là, Gamin..."
     lat = location[0]
     lng = location[1]
     json_wiki = json.loads(
@@ -37,12 +37,12 @@ def get_wiki(location):
             f"{constants.WIKI_URL}{lat}|{lng}").text
     )
     if len(json_wiki["query"]["pages"].values()) == 0:
-        return "NO DESCRIPTION AVAILABLE"
+        return "J'connais pas trop, Gamin..."
     return list(json_wiki["query"]["pages"].values())[0]["extract"]
 def get_coords(research):
     location = json.loads(
         requests.get(
-            f"https://maps.googleapis.com/maps/api/geocode/json?address={research}&key={constants.MAPSKEY}").text)
+            f"https://maps.googleapis.com/maps/api/geocode/json?address={research}+France&key={constants.MAPSKEY}").text)
     if len(location["results"]) == 0:
         return None
     #print(location.content)

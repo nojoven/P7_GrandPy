@@ -14,7 +14,8 @@ $("#typearea").keyup(function(e){
             },
                function(data) {
               console.log(data);
-              if(data["result"] != null) {
+
+              if(!data["result"].includes("NO AVAILABLE IMAGE")) {
                 var byteCharacters = data["result"];
                 var byteNumbers = new Array(byteCharacters.length);
                 for (var i = 0; i < byteCharacters.length; i++) {
@@ -33,7 +34,7 @@ $("#typearea").keyup(function(e){
                 image.src = byteCharacters;
                 image.width = 300;
                 image.height=150;
-                image.alt="here should be some image";
+                image.alt="J'ai pas compris, Fiston...";
 
                 $('.chatarea').append(image);
                 $('.chatarea').append("<br><br>");
