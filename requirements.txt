@@ -1,0 +1,5 @@
+flask == *
+requests == *
+nltk == *
+requests-async == *
+python_version == 3.7
