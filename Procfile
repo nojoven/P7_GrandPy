@@ -1,2 +1,2 @@
-$env:FLASK_APP = "main.py"
+FLASK_APP=app:app
 web: flask run
