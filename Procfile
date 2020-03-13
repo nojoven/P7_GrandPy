@@ -1,2 +1,1 @@
-web: export FLASK_APP=app
-web: flask run
+web: flask run --host=${HEROKU_APP_NAME}.herokuapp.com --port=$PORT
