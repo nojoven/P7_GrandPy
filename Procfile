@@ -1,1 +1,1 @@
-web: flask run --host=gpy007.herokuapp.com --port=$PORT
+web: flask run --port=$PORT
