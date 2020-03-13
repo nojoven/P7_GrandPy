@@ -1,2 +1,2 @@
-FLASK_APP=app:app
+web: export FLASK_APP=app
 web: flask run
