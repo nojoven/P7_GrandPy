@@ -19,7 +19,7 @@ from flask_dotenv import DotEnv
 app = Flask(__name__)
 """DotEnv adds environment variables without sending it on github"""
 env = DotEnv(app)
-env.init_app(app, env_file=".env", verbose_mode=True)
+env.init_app(app)
 env.eval(keys={
   "MAPSKEY": str
 })
