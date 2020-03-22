@@ -10,9 +10,7 @@ flask = "*"
 requests = "*"
 nltk = "*"
 requests-async = "*"
-flask-dotenv = "*"
 pytest = "*"
-black = "*"
 
 [requires]
 python_version = "3.7"
