@@ -28,8 +28,18 @@ Une autre étape importante du projet a été l’affichage de la carte Google Maps. 
 Enfin la dernière grande étape a été de récupérer les données Wikipedia correspondant à la localisation souhaitée par l’utilisateur, en éliminant les homonymes et en affichant uniquement le résumé de la page Wikipedia.
 
 Lancer l'application:
-$env:FLASK_APP = "C:\Users\Megaport\Documents\OPC\Projet 7\P7_JOSEPH_Cedric\app\main.py"
+$env:FLASK_APP = "C:\Users\Megaport\Documents\OPC\Projet 7\P7_JOSEPH_Cedric\main.py"
 flask run
+
+En cas de problème: 
+pipenv --rm
+pipenv install
+pipenv shell
+flask run
+
+DotEnv est utilisé pour ne pas avoir à pousser des informations sensibles sur GIT, par exemple la clé d'API:
+https://github.com/grauwoelfchen/flask-dotenv/blob/master/tests/flask_dotenv_test.py
+
 
 Variables d'environnement
 heroku logs -a gpy007 --tail
