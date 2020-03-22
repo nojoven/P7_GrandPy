@@ -29,6 +29,9 @@ Enfin la dernière grande étape a été de récupérer les données Wikipedia correspo
 
 Lancer l'application:
 $env:FLASK_APP = "C:\Users\Megaport\Documents\OPC\Projet 7\P7_JOSEPH_Cedric\main.py"
+$env:MAPSKEY = "MAPSKEY=AIzaSyAqidWbK3QWLgiCKF7SmBRAVlg15zy48CU"
+en local 
+
 flask run
 
 En cas de problème: 

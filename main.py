@@ -13,17 +13,11 @@ from flask import request
 from flask import Flask, render_template
 from flask import send_from_directory
 from nltk.tokenize import WordPunctTokenizer
-from flask_dotenv import DotEnv
 
 """Initializes the Flask app"""
 app = Flask(__name__)
-"""DotEnv adds environment variables without sending it on github"""
-env = DotEnv(app)
-env.init_app(app)
-env.eval(keys={
-  "MAPSKEY": str
-})
-conf = app.config
+"""Set environment variables without sending it on github"""
+conf = os.environ
 print(conf)
 
 """When someone tries to access the route '/' flask calls this function"""
