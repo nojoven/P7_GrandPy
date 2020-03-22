@@ -6,29 +6,24 @@ This Class has methods that can be called in the process method in main.py:
 - get_map(research,  location)
 - get_wiki(location)
 """
-import os
 import json
 import base64
-from nltk.corpus import stopwords
+import requests
 import nltk
-
+import constants
+from nltk.corpus import stopwords
 nltk.download("stopwords")
 nltk.download("punkt")
-import requests
-import constants
-from constants import EXTENDED_STOPS, WIKI_URL, MAPS_URL, STATIC_MAP_URL, STATIC_PARAMS
-from flask import request
-from flask import Flask, render_template
-from flask import send_from_directory
-from nltk.tokenize import WordPunctTokenizer
-from flask_dotenv import DotEnv
 
 
 class Reactions:
     """The class is used to respond to the user"""
-
     def get_input(self, process_words):
-        # words put in strings separated by "+" in the request of location
+        """
+            Formatting words to write an URL (for GET HTTP request)
+            Words are put in strings separated by "+"
+            in the request of location.
+        """
         research = "+".join(process_words)
         return research
 
@@ -48,20 +43,27 @@ class Reactions:
         return lat, lng
 
     def get_map(self, research, location, conf):
-        """This function uses the user input and the dict of coordinates to retrieve a map"""
+        """
+            This function uses the user input and the dict of coordinates
+            to retrieve a map.
+        """
         if location is None:
             return "NO AVAILABLE IMAGE"
         lat = location[0]
         lng = location[1]
         # It gets the image from the api
         map_image = requests.get(
-            f"{constants.STATIC_MAP_URL}={research}&{constants.STATIC_PARAMS}:C%7C{lat},{lng}&key={conf['MAPSKEY']}"
+            f"{constants.STATIC_MAP_URL}={research}&{constants.STATIC_PARAMS}\
+            :C%7C{lat},{lng}&key={conf['MAPSKEY']}"
         )
         # Converts the image into a base64 format (base64 is string), then retuns the string
         return base64.b64encode(map_image.content).decode("UTF8")
 
     def get_wiki(self, location):
-        """This function uses coordiates to retrieve the summary of the first matching article"""
+        """
+            This function uses coordiates to retrieve the summary
+            of the first matching article
+        """
         if location is None:
             return "J'connais pas ce coin là, Gamin..."
         lat = location[0]
@@ -72,9 +74,13 @@ class Reactions:
         return list(json_wiki["query"]["pages"].values())[0]["extract"]
 
     def process_words(self, input_text):
+        """
+            This function processes the raw input.
+            It takes a string and returns a list of meaningful words.
+        """
         stop = stopwords.words("french")
         stop.extend(constants.EXTENDED_STOPS)
-        tokenizer = nltk.RegexpTokenizer("\w+")
+        tokenizer = nltk.RegexpTokenizer(r"\w+")
         text_word = tokenizer.tokenize(input_text)
 
         process_words = [w for w in text_word if w not in stop]

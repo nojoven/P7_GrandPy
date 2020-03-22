@@ -1,52 +1,46 @@
+"""This is the entry point of the application"""
 import os
-import json
-import base64
-from nltk.corpus import stopwords
+from flask import Flask, render_template, request
+import reactions
 import nltk
-
 nltk.download("stopwords")
 nltk.download("punkt")
-import Reactions
-import requests
-import constants
-from constants import EXTENDED_STOPS, WIKI_URL, MAPS_URL, STATIC_MAP_URL, STATIC_PARAMS
-from flask import request
-from flask import Flask, render_template
-from flask import send_from_directory
-from nltk.tokenize import WordPunctTokenizer
+
 
 """Initializes the Flask app"""
-app = Flask(__name__)
+APP = Flask(__name__)
+
+CONF = os.environ
 """Set environment variables without sending it on github"""
-conf = os.environ
-print(conf)
-
-"""When someone tries to access the route '/' flask calls this function"""
 
 
-@app.route("/")
+@APP.route("/")
 def index():
-    """This function loads the template"""
+    """
+        This function loads the template
+        When someone tries to access the route '/'
+        flask calls this function
+    """
     return render_template("chat.html")
 
 
-"""When someone tries to access the route /input_process flask calls this function"""
-
-
-@app.route("/input_process")
+@APP.route("/input_process")
 def input_process():
     """
-        This function is used to communicate with the client-side of the application.
+        When someone tries to access the route /input_process,
+        Flask calls this function.
+        This function is used to communicate
+        with the client-side of the application.
         Background process happening without refreshing
     """
     print("START START START START")
 
-    rx = Reactions.Reactions()
+    rx = reactions.Reactions()
     input_text = request.args.get("input_text")
     process_words = rx.process_words(input_text)
     research = rx.get_input(process_words)
-    location = rx.get_coords(research, conf)
-    map_img = rx.get_map(research, location, conf)
+    location = rx.get_coords(research, CONF)
+    map_img = rx.get_map(research, location, CONF)
     wiki_desc = rx.get_wiki(location)
     print(location)
     print(wiki_desc)
