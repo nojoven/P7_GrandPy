@@ -36,17 +36,16 @@ def input_process():
     print("START START START START")
 
     rx = Reactions.Reactions()
-    process_words = rx.process_words()
+    input_text = request.args.get('input_text')
+    process_words = rx.process_words(input_text)
     research = rx.get_input(process_words)
     location = rx.get_coords(research, conf)
     map_img = rx.get_map(research, location, conf)
     wiki_desc = rx.get_wiki(location)
     print(location)
     print(wiki_desc)
-
+    # A JSON is returned to the client which waits for JSON
     return  {
                 "result": f"data:image/png;base64,{map_img}",
                 "wiki": str(wiki_desc)
             }
-
-

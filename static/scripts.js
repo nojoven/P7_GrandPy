@@ -8,7 +8,7 @@ $("#typearea").keyup(function(e){
 						 "</div>";
         $('.chatarea').append($userBubble);
         $(".chatarea").scrollTop($('.chatarea').prop("scrollHeight")); //Always scroll down
-        $.getJSON('/input_process', //communicate with the backend
+        $.getJSON('/input_process', //communicate with the backend so we need the backend to return a json (STRINGS!!!)
             {
                 "input_text": $(this).val() //we send the entire input text to the backend
             },

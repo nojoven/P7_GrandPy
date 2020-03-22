@@ -1,5 +1,7 @@
 """
 This Class has methods that can be called in the process method in main.py:
+- get_input(process_words)
+- process_words()
 - get_coords(research)
 - get_map(research,  location)
 - get_wiki(location)
@@ -34,6 +36,7 @@ class Reactions:
         location = json.loads(
             requests.get(
                 f"{constants.GEOCODE_BASE}={research}+France&key={conf['MAPSKEY']}").text)
+        print(location)
         if len(location["results"]) == 0:
             return None
         # print(location.content)
@@ -47,8 +50,10 @@ class Reactions:
             return "NO AVAILABLE IMAGE"
         lat = location[0]
         lng = location[1]
+        # It gets the image from the api
         map_image = requests.get(
             f"{constants.STATIC_MAP_URL}={research}&{constants.STATIC_PARAMS}:C%7C{lat},{lng}&key={conf['MAPSKEY']}")
+        #Converts the image into a base64 format (base64 is string), then retuns the string
         return base64.b64encode(map_image.content).decode("UTF8")
 
     def get_wiki(self, location):
@@ -65,10 +70,9 @@ class Reactions:
             return "J'connais pas trop, Gamin..."
         return list(json_wiki["query"]["pages"].values())[0]["extract"]
 
-    def process_words(self):
+    def process_words(self, input_text):
         stop = stopwords.words("french")
         stop.extend(constants.EXTENDED_STOPS)
-        input_text = request.args.get('input_text')
         tokenizer = nltk.RegexpTokenizer('\w+')
         text_word = tokenizer.tokenize(input_text)
 
