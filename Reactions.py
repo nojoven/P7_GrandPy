@@ -11,8 +11,9 @@ import json
 import base64
 from nltk.corpus import stopwords
 import nltk
-nltk.download('stopwords')
-nltk.download('punkt')
+
+nltk.download("stopwords")
+nltk.download("punkt")
 import requests
 import constants
 from constants import EXTENDED_STOPS, WIKI_URL, MAPS_URL, STATIC_MAP_URL, STATIC_PARAMS
@@ -35,7 +36,9 @@ class Reactions:
         """This function uses the location entered by the user to find the coordinates"""
         location = json.loads(
             requests.get(
-                f"{constants.GEOCODE_BASE}={research}+France&key={conf['MAPSKEY']}").text)
+                f"{constants.GEOCODE_BASE}={research}+France&key={conf['MAPSKEY']}"
+            ).text
+        )
         print(location)
         if len(location["results"]) == 0:
             return None
@@ -52,8 +55,9 @@ class Reactions:
         lng = location[1]
         # It gets the image from the api
         map_image = requests.get(
-            f"{constants.STATIC_MAP_URL}={research}&{constants.STATIC_PARAMS}:C%7C{lat},{lng}&key={conf['MAPSKEY']}")
-        #Converts the image into a base64 format (base64 is string), then retuns the string
+            f"{constants.STATIC_MAP_URL}={research}&{constants.STATIC_PARAMS}:C%7C{lat},{lng}&key={conf['MAPSKEY']}"
+        )
+        # Converts the image into a base64 format (base64 is string), then retuns the string
         return base64.b64encode(map_image.content).decode("UTF8")
 
     def get_wiki(self, location):
@@ -62,10 +66,7 @@ class Reactions:
             return "J'connais pas ce coin là, Gamin..."
         lat = location[0]
         lng = location[1]
-        json_wiki = json.loads(
-            requests.get(
-                f"{constants.WIKI_URL}{lat}|{lng}").text
-        )
+        json_wiki = json.loads(requests.get(f"{constants.WIKI_URL}{lat}|{lng}").text)
         if len(json_wiki["query"]["pages"].values()) == 0:
             return "J'connais pas trop, Gamin..."
         return list(json_wiki["query"]["pages"].values())[0]["extract"]
@@ -73,7 +74,7 @@ class Reactions:
     def process_words(self, input_text):
         stop = stopwords.words("french")
         stop.extend(constants.EXTENDED_STOPS)
-        tokenizer = nltk.RegexpTokenizer('\w+')
+        tokenizer = nltk.RegexpTokenizer("\w+")
         text_word = tokenizer.tokenize(input_text)
 
         process_words = [w for w in text_word if w not in stop]

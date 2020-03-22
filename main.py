@@ -3,8 +3,9 @@ import json
 import base64
 from nltk.corpus import stopwords
 import nltk
-nltk.download('stopwords')
-nltk.download('punkt')
+
+nltk.download("stopwords")
+nltk.download("punkt")
 import Reactions
 import requests
 import constants
@@ -21,13 +22,18 @@ conf = os.environ
 print(conf)
 
 """When someone tries to access the route '/' flask calls this function"""
-@app.route('/')
+
+
+@app.route("/")
 def index():
     """This function loads the template"""
     return render_template("chat.html")
 
+
 """When someone tries to access the route /input_process flask calls this function"""
-@app.route('/input_process')
+
+
+@app.route("/input_process")
 def input_process():
     """
         This function is used to communicate with the client-side of the application.
@@ -36,7 +42,7 @@ def input_process():
     print("START START START START")
 
     rx = Reactions.Reactions()
-    input_text = request.args.get('input_text')
+    input_text = request.args.get("input_text")
     process_words = rx.process_words(input_text)
     research = rx.get_input(process_words)
     location = rx.get_coords(research, conf)
@@ -45,7 +51,4 @@ def input_process():
     print(location)
     print(wiki_desc)
     # A JSON is returned to the client which waits for JSON
-    return  {
-                "result": f"data:image/png;base64,{map_img}",
-                "wiki": str(wiki_desc)
-            }
+    return {"result": f"data:image/png;base64,{map_img}", "wiki": str(wiki_desc)}

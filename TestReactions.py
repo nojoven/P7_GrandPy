@@ -4,8 +4,9 @@ import json
 import base64
 from nltk.corpus import stopwords
 import nltk
-nltk.download('stopwords')
-nltk.download('punkt')
+
+nltk.download("stopwords")
+nltk.download("punkt")
 import requests
 import constants
 import Reactions
@@ -15,6 +16,7 @@ from flask import Flask, render_template
 from flask import send_from_directory
 from nltk.tokenize import WordPunctTokenizer
 from flask_dotenv import DotEnv
+
 
 class Test_Reactions:
     input_text = "GrandPy connais-tu l' Arc de Triomphe ?"
@@ -57,8 +59,3 @@ class Test_Reactions:
         wiki_desc = self.rX.get_wiki(location)
         assert isinstance(wiki_desc, str)
         assert len(wiki_desc) > 0
-
-
-
-
-
