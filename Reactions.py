@@ -18,7 +18,8 @@ nltk.download("punkt")
 
 class Reactions:
     """The class is used to respond to the user"""
-    def get_input(self, process_words):
+    @staticmethod
+    def get_input(process_words):
         """
             Formatting words to write an URL (for GET HTTP request)
             Words are put in strings separated by "+"
@@ -27,7 +28,8 @@ class Reactions:
         research = "+".join(process_words)
         return research
 
-    def get_coords(self, research, conf):
+    @staticmethod
+    def get_coords(research, conf):
         """This function uses the location entered by the user to find the coordinates"""
         location = json.loads(
             requests.get(
@@ -42,7 +44,8 @@ class Reactions:
         lng = location["results"][0]["geometry"]["location"]["lng"]
         return lat, lng
 
-    def get_map(self, research, location, conf):
+    @staticmethod
+    def get_map(research, location, conf):
         """
             This function uses the user input and the dict of coordinates
             to retrieve a map.
@@ -59,7 +62,8 @@ class Reactions:
         # Converts the image into a base64 format (base64 is string), then retuns the string
         return base64.b64encode(map_image.content).decode("UTF8")
 
-    def get_wiki(self, location):
+    @staticmethod
+    def get_wiki(location):
         """
             This function uses coordiates to retrieve the summary
             of the first matching article
@@ -73,7 +77,8 @@ class Reactions:
             return "J'connais pas trop, Gamin..."
         return list(json_wiki["query"]["pages"].values())[0]["extract"]
 
-    def process_words(self, input_text):
+    @staticmethod
+    def process_words(input_text):
         """
             This function processes the raw input.
             It takes a string and returns a list of meaningful words.
