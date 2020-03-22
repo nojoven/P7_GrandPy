@@ -10,10 +10,9 @@ $("#typearea").keyup(function(e){
         $(".chatarea").scrollTop($('.chatarea').prop("scrollHeight")); //Always scroll down
         $.getJSON('/input_process', //communicate with the backend
             {
-                "input_text": $(this).val()
+                "input_text": $(this).val() //we send the entire input text to the backend
             },
-               function(data) {
-              console.log(data);
+              function(data) { //data is the backend response in json format
 
               if(!data["result"].includes("NO AVAILABLE IMAGE")) { //if there is a map (sometimes there will be no map to display)
                 var byteCharacters = data["result"];
