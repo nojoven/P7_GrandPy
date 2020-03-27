@@ -1,46 +1,46 @@
-Dis GrandPy, raconte-nous une histoire !
+Dis GrandPy, raconte-nous une histoireÂ !
 
-PROJET 7 : LE CHATBOT GRANDPY
+PROJET 7Â : LE CHATBOT GRANDPY
 Trello: https://trello.com/b/4WEml9Lc/p7
 GitHub https://github.com/nojoven/P7_GrandPy/tree/master/app
 Site Web: https://gpy007.herokuapp.com/
 
-Les objectifs du projet sont les suivants :
+Les objectifs du projet sont les suivantsÂ :
 
--	Se familiariser avec le développement web 
+-	Se familiariser avec le dÃ©veloppement web 
 (architecture client/serveur)
--	Se familiariser avec l’exécution de code dans le navigateur
--	Développer une interface interactive dans le navigateur avec HTML, CSS et Javascript ce dernier langage permettant de réagir aux actions de l’utilisateur
-- 	Se familiariser avec les frameworks de développement web en découvrant l’organisation MVT
--	Découvrir Flask qui est l’un des principaux frameworks utilisés par les entreprises
--	Apprendre à faire communiquer le code Python et le code Javascript
--	Faire appel à plusieurs APIs Web afin d’afficher des données 	    
--	Utiliser Bootstrap 4, beaucoup utilisé en entreprise pour réutiliser et combiner rapidement des éléments HTML et CSS
+-	Se familiariser avec lâ€™exÃ©cution de code dans le navigateur
+-	DÃ©velopper une interface interactive dans le navigateur avec HTML, CSS et Javascript ce dernier langage permettant de rÃ©agir aux actions de lâ€™utilisateur
+- 	Se familiariser avec les frameworks de dÃ©veloppement web en dÃ©couvrant lâ€™organisation MVT
+-	DÃ©couvrir Flask qui est lâ€™un des principaux frameworks utilisÃ©s par les entreprises
+-	Apprendre Ã  faire communiquer le code Python et le code Javascript
+-	Faire appel Ã  plusieurs APIs Web afin dâ€™afficher des donnÃ©es 	    
+-	Utiliser Bootstrap 4, beaucoup utilisÃ© en entreprise pour rÃ©utiliser et combiner rapidement des Ã©lÃ©ments HTML et CSS
 
 Je connaissais HTML, CSS, Bootstrap et Jquery.
-On ne peut pas vraiment parler de programmation concernant HTML et CSS cependant obtenir un résultat satisfaisant demande beaucoup de persévérance, Bootstrap m’a été d’un grand secours,
+On ne peut pas vraiment parler de programmation concernant HTML et CSS cependant obtenir un rÃ©sultat satisfaisant demande beaucoup de persÃ©vÃ©rance, Bootstrap mâ€™a Ã©tÃ© dâ€™un grand secours,
 
-J’ai surtout appris à utiliser un framework, Flask afin de développer une application.
-Il a fallu comprendre comment coder le point d’entrée de l’application et faire le lien avec les scripts JS. J’ai pu constater aussi à quel point Python était lisible comparé à Javascript. 
+Jâ€™ai surtout appris Ã  utiliser un framework, Flask afin de dÃ©velopper une application.
+Il a fallu comprendre comment coder le point dâ€™entrÃ©e de lâ€™application et faire le lien avec les scripts JS. Jâ€™ai pu constater aussi Ã  quel point Python Ã©tait lisible comparÃ© Ã  Javascript. 
 
-Une autre étape importante du projet a été l’affichage de la carte Google Maps. J’ai dû créer une clé d’API, appeler deux API (Geocode et Maps Static) et encoder l’image reçue pour pouvoir l’afficher.
+Une autre Ã©tape importante du projet a Ã©tÃ© lâ€™affichage de la carte Google Maps. Jâ€™ai dÃ» crÃ©er une clÃ© dâ€™API, appeler deux API (Geocode et Maps Static) et encoder lâ€™image reÃ§ue pour pouvoir lâ€™afficher.
 
-Enfin la dernière grande étape a été de récupérer les données Wikipedia correspondant à la localisation souhaitée par l’utilisateur, en éliminant les homonymes et en affichant uniquement le résumé de la page Wikipedia.
+Enfin la derniÃ¨re grande Ã©tape a Ã©tÃ© de rÃ©cupÃ©rer les donnÃ©es Wikipedia correspondant Ã  la localisation souhaitÃ©e par lâ€™utilisateur, en Ã©liminant les homonymes et en affichant uniquement le rÃ©sumÃ© de la page Wikipedia.
 
 Lancer l'application:
 $env:FLASK_APP = "C:\Users\Megaport\Documents\OPC\Projet 7\P7_JOSEPH_Cedric\main.py"
-$env:MAPSKEY = "MAPSKEY=AIzaSyAqidWbK3QWLgiCKF7SmBRAVlg15zy48CU"
+$env:MAPSKEY = "MAPSKEY=*****"
 en local 
 
 flask run
 
-En cas de problème: 
+En cas de problÃ¨me: 
 pipenv --rm
 pipenv install
 pipenv shell
 flask run
 
-DotEnv est utilisé pour ne pas avoir à pousser des informations sensibles sur GIT, par exemple la clé d'API:
+DotEnv est utilisÃ© pour ne pas avoir Ã  pousser des informations sensibles sur GIT, par exemple la clÃ© d'API:
 https://github.com/grauwoelfchen/flask-dotenv/blob/master/tests/flask_dotenv_test.py
 
 
@@ -51,7 +51,7 @@ heroku config:set FLASK_RUN_PORT=$PORT -a gpy007
 
 Fonctionnement: 
 1) L'utilisateur pose une question de type "GrandPy connais-tu L'arc de Triomphe?" et appuie sur ENTER
-2) Le bot lui répond avec une carte google et une description wikipédia s'il en existe une.
+2) Le bot lui rÃ©pond avec une carte google et une description wikipÃ©dia s'il en existe une.
 
   
 
