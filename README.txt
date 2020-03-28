@@ -2,7 +2,7 @@ Dis GrandPy, raconte-nous une histoire !
 
 PROJET 7 : LE CHATBOT GRANDPY
 Trello: https://trello.com/b/4WEml9Lc/p7
-GitHub https://github.com/nojoven/P7_GrandPy/tree/master/app
+GitHub https://github.com/nojoven/P7_GrandPy
 Site Web: https://gpy007.herokuapp.com/
 
 Les objectifs du projet sont les suivants :
